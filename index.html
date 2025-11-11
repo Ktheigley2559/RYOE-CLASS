@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RYOE Explorer (Frontend Only)</title>
+  <link rel="stylesheet" href="webapp/style.css">
+</head>
+<body>
+  <main>
+    <h1>RYOE Explorer</h1>
+
+    <p class="hint">This is a frontend-only app that reads the CSV at <code>team_data_combined/plays.csv</code> (must be served by a static HTTP server). Type a player's name to filter. If empty, shows summary for all rushers.</p>
+
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search player name (e.g. Conner)" />
+      <button id="clear">Clear</button>
+      <div id="status">Loading CSV…</div>
+    </div>
+
+    <section id="summary">
+      <table id="results">
+        <thead>
+          <tr>
+            <th>Rusher</th>
+            <th>Total Plays</th>
+            <th>Avg Yards</th>
+            <th>Avg RYOE</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <footer>
+      <small>Uses RYOE formula from <code>queries.sql</code>: expected = 0.12588674 * ydstogo + 3.47336519</small>
+    </footer>
+  </main>
+
+  <!-- PapaParse from CDN for CSV parsing in-browser -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="webapp/app.js"></script>
+</body>
+</html>
