@@ -39,8 +39,9 @@ SELECT
 	rusher_player_name,
 	down,
 	CASE WHEN down = 2 THEN 1 ELSE 0 END AS is_second_down,
+	CASE WHEN down = 3 THEN 1 ELSE 0 END AS is_third_down,
+	CASE WHEN down = 4 THEN 1 ELSE 0 END AS is_fourth_down,
 	yards_gained,
 	ydstogo
 FROM plays
-WHERE rush_attempt = 1
-LIMIT 200;
+WHERE rush_attempt = 1;
