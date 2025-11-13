@@ -31,3 +31,16 @@ SELECT
  	down
 from plays
 where rush_attempt=1
+
+
+-- Flag rows where the play is 2nd down: 1 when down=2, otherwise 0
+SELECT
+	rusher_player_id,
+	rusher_player_name,
+	down,
+	CASE WHEN down = 2 THEN 1 ELSE 0 END AS is_second_down,
+	yards_gained,
+	ydstogo
+FROM plays
+WHERE rush_attempt = 1
+LIMIT 200;
