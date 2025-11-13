@@ -21,3 +21,13 @@ where rush_attempt=1
 group by rusher_player_id, rusher_player_name
 having count(*) >= 100
 order by yards_over_expected desc;
+
+
+SELECT 
+	rusher_player_id,
+	rusher_player_name,
+	yards_gained,
+	ydstogo,
+ 	down
+from plays
+where rush_attempt=1
